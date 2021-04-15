@@ -1,0 +1,28 @@
+<h1>New director</h1>
+
+<% @director.errors.full_messages.each do |message| %>
+  <p style="color: red;"><%= message %></p>
+<% end %>
+
+<%= form_with(model: @director) do |form| %>
+
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :dob %>
+    <%= form.date_field :dob %>
+  </div>
+
+  <div>
+    <%= form.label :sex, "female" %>
+    <%= form.radio_button :sex, "female" %>
+
+    <%= form.label :sex, "male" %>
+    <%= form.radio_button :sex, "male" %>
+  </div>
+
+  <%= form.button %>
+<% end %>
