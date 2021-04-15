@@ -14,7 +14,7 @@ class MoviesTest < ApplicationSystemTestCase
 
     fill_in "Description", with: "A new movie's descroption"
     fill_in "Title", with: "A new movie's title"
-    click_on "Create movie"
+    click_on "Create Movie"
 
     assert_text "Movie created successfully"
     
@@ -27,16 +27,16 @@ class MoviesTest < ApplicationSystemTestCase
 
     visit "/movies/#{@movie.id}/edit"
 
-    fill_in "Description", with: "Some other description"
-    fill_in "Title", with: "Some other title"
+    fill_in "Description", with: "description"
+    fill_in "Title", with: "title"
 
-    click_on "Update movie"
+    click_on "Update Movie"
     
     assert_text "Movie updated successfully"
 
-    @movie.reload # Why do we need this?
-    assert_equal "Some other title", @movie.title
-    assert_equal "Some other description", @movie.description
+    @movie.reload
+    assert_equal "title", @movie.title
+    assert_equal "description", @movie.description
   end
 
   test "destroying a Movie" do
