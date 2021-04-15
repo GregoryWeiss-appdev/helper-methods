@@ -13,7 +13,7 @@ class DirectorsTest < ApplicationSystemTestCase
     click_on "Add a new director"
 
     fill_in "Name", with: "Director's Name"
-    fill_in "Dob", :with => "2021-04-15"
+    fill_in "Dob", :with => "01/01/2001"
     choose "director_sex_male"
 
     click_on "Create Director"
@@ -30,7 +30,7 @@ class DirectorsTest < ApplicationSystemTestCase
     visit "/directors/#{@director.id}/edit"
 
     fill_in "director_name", with: "Director's Name"
-    fill_in "Dob", :with => "2021-04-15"
+    fill_in "Dob", :with => "01/01/2001"
     choose "director_sex_female"
 
     click_on "Update Director"
@@ -39,8 +39,8 @@ class DirectorsTest < ApplicationSystemTestCase
 
     @director.reload
     assert_equal "Director's Name", @director.name
-    assert_equal "2021-04-15".to_date, @director.dob
-    assert_equal "Female", @director.sex
+    assert_equal "2001-01-01".to_date, @director.dob
+    assert_equal "female", @director.sex
   end
 
   test "destroying a Director" do
